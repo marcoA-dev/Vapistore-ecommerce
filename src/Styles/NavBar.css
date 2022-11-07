@@ -1,0 +1,27 @@
+
+.NameStore{
+    position: relative;
+    left: 744px;
+    top: 28px;
+    font-size: 40px;
+    color: black;
+}
+.LogoBrand{
+    position: relative;
+    left: 855px;
+    bottom: 15px;
+}
+
+.Catalogo,.Contacto{
+    position: relative;
+    left: 380px;
+}
+
+.Nosotros,.Sucursales{
+    position: relative;
+    left: 605px;
+}
+
+.nav-link{
+    color: black;
+}
