@@ -1,0 +1,13 @@
+.AgregarCarrito{
+    position: relative;
+    right: 252px;
+    top: 54px;
+    width: 256px;
+    border: solid 1px black;
+    border-radius: 10px;
+}
+
+.Counter{
+  width: 100px;  
+  text-align: center;
+}
