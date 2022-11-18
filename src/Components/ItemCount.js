@@ -10,10 +10,6 @@ const ItemCount = ({initial,stock,onAdd}) => {
 
 
 
-  const Decrease = () =>{
-   setCounter(counter -1)
-  }
-
   const Increase = () =>{
     setCounter(counter + 1);
   }
@@ -26,24 +22,26 @@ const ItemCount = ({initial,stock,onAdd}) => {
  return (
     <>
     <div className="btn-group" role="group" aria-label="Basic example">
+
         <button 
         type="button" 
         className="btn btn-primary Decrease" 
-        onClick={Decrease}
+        onClick={() => setCounter(counter - 1)}
         disabled={counter <=0}
         id='decrease'>
             <BiMinus></BiMinus>
         </button>
+
         <span 
         type="number" 
-        className='Counter'
-        >
+        className='Counter'>
           {counter}
         </span>
+
         <button 
         type="button" 
         className="btn btn-primary Increase" 
-        onClick={Increase}
+        onClick={()=> setCounter(counter + 1)}
         disabled= {counter >= stock}>
             <BiPlus></BiPlus></button>
         <button
@@ -51,6 +49,7 @@ const ItemCount = ({initial,stock,onAdd}) => {
         className='AgregarCarrito'>
             Agregar al Carrito
         </button>
+        
     </div>
     </>
   )
