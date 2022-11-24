@@ -1,23 +1,15 @@
 import React from 'react';
-import { useState ,useEffect } from 'react';
+import { useState  } from 'react';
 import {BiPlus} from "react-icons/bi";
 import {BiMinus} from "react-icons/bi";
 import "../Styles/ItemCount.css";
 
-const ItemCount = ({initial,stock,onAdd}) => {
-
-  const [counter , setCounter] = useState(parseInt(initial));
+const ItemCount = ({count,handleCount}) => {
 
 
 
-  const Increase = () =>{
-    setCounter(counter + 1);
-  }
   
-  useEffect(() => {
-    setCounter(parseInt(initial));
-  },[initial])
-  
+
 
  return (
     <>
@@ -26,8 +18,8 @@ const ItemCount = ({initial,stock,onAdd}) => {
         <button 
         type="button" 
         className="btn btn-primary Decrease" 
-        onClick={() => setCounter(counter - 1)}
-        disabled={counter <=0}
+        onClick={() => handleCount("minus")}
+
         id='decrease'>
             <BiMinus></BiMinus>
         </button>
@@ -35,21 +27,14 @@ const ItemCount = ({initial,stock,onAdd}) => {
         <span 
         type="number" 
         className='Counter'>
-          {counter}
+          {count}
         </span>
 
         <button 
         type="button" 
         className="btn btn-primary Increase" 
-        onClick={()=> setCounter(counter + 1)}
-        disabled= {counter >= stock}>
+        onClick={() => handleCount("plus")}>
             <BiPlus></BiPlus></button>
-        <button
-        onClick={()=> onAdd(counter)} 
-        className='AgregarCarrito'>
-            Agregar al Carrito
-        </button>
-        
     </div>
     </>
   )
