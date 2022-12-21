@@ -1,16 +1,12 @@
-import React from 'react'
-import Item from './Item.js'
+import Item from "./Item";
 
-const ItemList = ({ products }) => {
+export const ItemList = ({ products}) => {
   return (
-    <div>
-      <ul>
-        {products.map((product, index) => (
-          <Item key={index} product={product}></Item>
-        ))}
-      </ul>
-    </div>
-  )
-}
-
-export default ItemList
+    <ul className="flex items-center justify-center gap-4">
+      {products.map((Product,index) => (
+        <Item key={index} product={Product} />
+      ))}
+    </ul>
+  );
+};
+export default ItemList;

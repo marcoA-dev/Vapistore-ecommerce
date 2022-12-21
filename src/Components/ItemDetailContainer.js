@@ -1,38 +1,35 @@
-import React,{useEffect,useState} from 'react';
+import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
+import { getFirestore, getDoc, doc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 
-
-
-
-//mocks
-
-import {items} from "../mocks/itemMocks";
-
-
 const ItemDetailContainer = () => {
-
-  const [item,setItem] = useState(null);
-  const {id} = useParams();
-
+  const [item, setItem] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
-    new Promise((resolve) =>
-      // Simulation of a call to an api
-      setTimeout(() => resolve(items.find((item) => item.id === id)), 1000)
-    ).then((data) => setItem(data));
+    const db = getFirestore();
+    const itemRef = doc(db, "items", id);
+    getDoc(itemRef)
+      .then((item) => {
+        if (item.exists()) {
+          setItem({ id: item.id, ...item.data() });
+        }
+      })
+      .catch((err) => console.error({ err }));
   }, [id]);
 
-
+  console.log(item);
 
   if (!item) {
-    return <p>Loading...</p>;
+    return (
+      <div className="contenedorCarga">
+        <div className="carga"></div>
+      </div>
+    );
   }
 
-  return <ItemDetail 
-          item={item}>
-         </ItemDetail>;
-    
-}
+  return <ItemDetail item={item} />;
+};
 
-export default ItemDetailContainer
+export default ItemDetailContainer;

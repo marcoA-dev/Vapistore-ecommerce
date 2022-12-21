@@ -1,44 +1,51 @@
-import React,{useEffect, useState} from 'react'
-import { useParams } from 'react-router-dom';
-
-// Own component
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
-
-// Mocks
-import {items} from "../mocks/itemMocks";
-
-
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
 const ItemListContainer = () => {
+  const { category } = useParams();
 
-  const {category } = useParams();
+  const [products, setProducts] = useState([]);
 
-  const [products,setProducts] = useState([]);
+  useEffect(() => {
+    const db = getFirestore();
+    const itemsCollection = collection(db, "items");
 
-  useEffect(()=>{
-    new Promise((resolve) => setTimeout(() => {
-     resolve(items);
-   },2000)
-   ).then((data)=> {
     if (category) {
-      const categories = data.filter(product=> product.category === category)
-      setProducts(categories);
-    } else{
-      setProducts(data);
+      const q = query(itemsCollection, where("category", "==", category));
+      getDocs(q).then((snapshot) => {
+        const products = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        setProducts(products);
+      });
+    } else {
+      getDocs(itemsCollection).then((snapshot) => {
+        const products = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        setProducts(products);
+      });
     }
-   });
-  }, [category])
-
-
-
-
+  }, [category]);
+  
 
   return (
     <>
-    <ItemList products={products}></ItemList>
+      <ItemList products={products}></ItemList>
     </>
-    
-  )
-}
+  );
+};
 
-export default ItemListContainer
+export default ItemListContainer;
