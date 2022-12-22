@@ -1,0 +1,95 @@
+
+
+.formCheckOut{
+    display: flex;
+    top: 300px;
+    position: relative;
+    bottom: 200px;
+    width: 40%;
+    text-align: center;
+}
+
+
+.checkOutContainer{
+    position: relative;
+    display: flex;
+    left: 130px;
+}
+
+.nameInput, .numberInput,.inputEmail{
+      margin-bottom: 20px;
+}
+
+
+.checkoutTitle{
+    position: relative;
+    bottom: 170px;
+    border-bottom: 2px dotted black;
+}
+
+
+
+.TotalBuy{
+    float: right;
+    position: relative;
+    bottom: -70px;
+    right: 200px;
+}
+  
+  .finalizarBtn{
+    margin-left: 50px;
+    cursor: pointer;
+  }
+  
+  .priceSpan{
+    position: relative;
+    border-bottom: 1px solid black;
+  
+  }
+  
+  .finalizarBtn {
+    border: solid 1px black;
+    border-radius: 25px;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    font-weight: 700;
+    font-size: 10px;
+    background-color: #47bcd4;
+    padding: 17px 60px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+    top: 30px;
+  }
+  
+  .finalizarBtn span {
+    position: relative; 
+    z-index: 1;
+  }
+  
+  
+  .finalizarBtn:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 490%;
+    width: 140%;
+    background: #3cb4cc;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  }
+  
+  .finalizarBtn:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  }
+  
+  

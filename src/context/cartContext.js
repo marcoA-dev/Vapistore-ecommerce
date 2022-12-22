@@ -47,6 +47,9 @@ export const CartContextProvider = ({ children }) => {
     return Boolean(productsAdded.find((product) => product.item.id === itemId));
   }
 
+  const itemsCounter = () =>productsAdded.reduce((acum, item) => acum = acum + item.quantityAdded, 0);
+;
+
   return (
     <CartContext.Provider
       value={{
@@ -56,6 +59,7 @@ export const CartContextProvider = ({ children }) => {
         isInCart,
         productsAdded,
         totalAmount,
+        itemsCounter,
       }}
     >
       {children}

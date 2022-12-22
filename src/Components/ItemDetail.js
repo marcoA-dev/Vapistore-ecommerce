@@ -3,8 +3,10 @@ import { useContext, useState } from "react";
 import { CartContext } from "../context/cartContext";
 import { useGetItemImg } from "../hooks/useGetItemImg";
 import ItemCount from "../Components/ItemCount";
-import "../Styles/ItemDetail.css";
+
+//importacion de Estilos
 import Swal from "sweetalert2";
+import "../Styles/ItemDetail.css";
 
 const ItemDetail = ({ item }) => {
   const { addItem, isInCart } = useContext(CartContext);
@@ -38,44 +40,44 @@ const ItemDetail = ({ item }) => {
 
   return (
     <>
-      <div className="card mb-3 cardDetail ">
-        <div className="row g-0">
-          <div className="col-md-4">
-            <img src={img} className="img-fluid rounded-start" alt="..." />
-          </div>
-          <div className="col-md-8 ">
-            <div className="card-body">
-              <h5 className="card-title">{item.name}</h5>
-              <p className="card-text">{item.descripcion}</p>
-              <span>
+      <div className="containerDetail">
+        <div>
+          <img className="productImage" src={img} alt=""></img>
+        </div>
+        <div className="product-details">
+          <div>
+            <h1 className="titleDetail">{item.name}</h1>
+            <p className="information">{item.descripcion}</p>
+            <div className="control">
+              <span className="price">
                 price: <strong>${item.price}</strong>
               </span>
-              {currentStock > 0 && (
-                <p className="text-sm">In Stock: {currentStock}</p>
+              {currentStock > 0 && <p className="countDetail">In Stock: {currentStock}</p>}
+              {/* Count */}
+              {currentStock > 0 ? (
+                <ItemCount count={count} handleCount={handleCount} />
+              ) : (
+                <span className="sinStockSpan">Sin stock</span>
               )}
-              <div className="flex flex-col flex-1 items-center">
-                {/* Count */}
-                {currentStock > 0 ? (
-                  <ItemCount count={count} handleCount={handleCount} />
-                ) : (
-                  <span className="text-red-500 mt-10">Sin stock</span>
-                )}
-                <div className="w-full flex flex-col items-center">
-                  <button
-                    onClick={handleAdd}
-                    className="w-4/5 bg-gray-200 px-4 py-2 mt-2 rounded disabled:opacity-40"
-                    disabled={currentStock === 0}
-                  >
-                    Agregar al carrito
-                  </button>
-                  <button
-                    disabled={!isInCart(item.id)}
-                    onClick={handleCheckout}
-                    className="w-4/5 bg-gray-800 text-black px-4 py-2 mt-2 rounded"
-                  >
-                    Finalizar Compra
-                  </button>
-                </div>
+              <div className="itemDetailButtons">
+              <button
+                onClick={handleAdd}
+                className="agregarCarritoBtn"
+                disabled={currentStock === 0}
+              >
+                <span>
+                  Agregar Al Carrito
+                </span>
+              </button>
+              <button
+                disabled={!isInCart(item.id)}
+                onClick={handleCheckout}
+                className="finalizarCompraBtn"
+              >
+                <span>
+                  Comprar
+                </span>
+              </button>
               </div>
             </div>
           </div>

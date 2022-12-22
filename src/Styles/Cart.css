@@ -1,0 +1,9 @@
+.cartContainer{
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 60%;
+  position: relative;
+  left: 790px;
+  bottom: 130px;
+}
+

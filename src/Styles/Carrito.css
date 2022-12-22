@@ -1,4 +1,7 @@
 .BotonCarrito {
     position: relative;
     left: 1150px;
+    outline:none;
+    border: none;
 }
+

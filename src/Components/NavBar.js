@@ -1,12 +1,15 @@
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
+
+// Importacion de Estilos
 import vapistorelogo from "../assets/vapistorelogo.png";
 import "../Styles/NavBar.css";
-import { Link } from "react-router-dom";
+
 
 const NavBar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg ">
+      <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
           <img
             src={vapistorelogo}
@@ -33,7 +36,7 @@ const NavBar = () => {
             <ul className="navbar-nav">
               <div className="dropdown">
                 <Link
-                  className="btn dropdown-toggle"
+                  className="btn dropdown-toggle "
                   to={"/"}
                   role="button"
                   data-bs-toggle="dropdown"
@@ -54,7 +57,7 @@ const NavBar = () => {
                   </li>
                 </ul>
               </div>
-              <li className="nav-item Nosotros">
+              <li className="nav-item">
                 <Link className="nav-link" to="/item/:id">
                   Productos
                 </Link>

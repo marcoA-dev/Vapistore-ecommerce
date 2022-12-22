@@ -8,6 +8,13 @@
 }
 
 .Counter{
-  width: 100px;  
+  width: 200px;  
   text-align: center;
+}
+
+.Decrease, .Increase{
+  position: relative;
+  background-color: transparent;
+  outline: none;
+  border: none;
 }

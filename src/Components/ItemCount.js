@@ -9,20 +9,19 @@ export const ItemCount = ({ count, handleCount }) => {
       <div className="btn-group" role="group" aria-label="Basic example">
         <button
           type="button"
-          className="btn btn-primary Decrease"
+          className="Decrease"
           onClick={() => handleCount("minus")}
           id="decrease"
         >
           <BiMinus></BiMinus>
         </button>
-
         <span type="number" className="Counter">
           {count}
         </span>
 
         <button
           type="button"
-          className="btn btn-primary Increase"
+          className="Increase"
           onClick={() => handleCount("plus")}
         >
           <BiPlus></BiPlus>

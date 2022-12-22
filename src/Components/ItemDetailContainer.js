@@ -19,7 +19,7 @@ const ItemDetailContainer = () => {
       .catch((err) => console.error({ err }));
   }, [id]);
 
-  console.log(item);
+
 
   if (!item) {
     return (

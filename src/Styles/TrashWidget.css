@@ -1,0 +1,13 @@
+.trashBtn{
+    position: relative;
+    right: 186px;
+    top: 330px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+}
+
+.trashIcon{
+    width: 24px;
+    height: 24px;
+}
