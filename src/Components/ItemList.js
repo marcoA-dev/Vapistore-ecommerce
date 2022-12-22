@@ -2,7 +2,7 @@ import Item from "./Item";
 
 export const ItemList = ({ products}) => {
   return (
-    <ul className="flex items-center justify-center gap-4">
+    <ul className="ulContainer">
       {products.map((Product,index) => (
         <Item key={index} product={Product} />
       ))}

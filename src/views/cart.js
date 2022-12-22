@@ -18,7 +18,6 @@ const CartView = () => {
 
   return (
     <Layout>
-      <CheckoutView></CheckoutView>
       {items.length === 0 ? (
         <div>
           <img src={EmptyCart} alt="Empty Cart" />
@@ -26,6 +25,8 @@ const CartView = () => {
           <button onClick={() => navigate("/")}>Ir al Inicio</button>
         </div>
       ) : (
+        <div>
+          <CheckoutView></CheckoutView>
         <div className="mainContainer">
           <div className="cartContainer">
             {items.map((product) => {
@@ -39,6 +40,7 @@ const CartView = () => {
             })}
           </div>
           <div></div>
+        </div>
         </div>
       )}
     </Layout>

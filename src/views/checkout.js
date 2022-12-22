@@ -23,9 +23,10 @@ const CheckoutView = () => {
 
   const handleFinalizePurchase = (event) => {
     event.preventDefault();
-    const name = console.log(event.target[0].value)
-    const phone = console.log(event.target[2].value)
-    const email = console.log(event.target[3].value)
+    const name = event.target[0].value;
+    const phone = event.target[1].value;
+    const email = event.target[2].value;
+
 
     const total = items
       .map((product) =>
@@ -74,7 +75,7 @@ const CheckoutView = () => {
     <div className="checkOutContainer">
       <div className="formCheckOut">
         <form onSubmit={handleFinalizePurchase} className="form">
-          <h5 className="checkoutTitle">CheckOut</h5>
+        <h5 className="checkoutTitle">CheckOut</h5>
           <div className="row">
             <div className="col ">
               <input
@@ -83,15 +84,7 @@ const CheckoutView = () => {
                 placeholder="First name"
                 aria-label="First name"
                 name="nombre"
-              />
-            </div>
-            <div className="col">
-              <input
-                type="text"
-                className="form-control lastNameInput"
-                placeholder="Last name "
-                aria-label="Last name"
-                name="apellido"
+                required
               />
             </div>
             <div>
@@ -101,22 +94,25 @@ const CheckoutView = () => {
                   className="form-control numberInput"
                   placeholder="Number"
                   aria-label="Number"
-                  name="celular"
+                  name="phone"
+                  required
                 />
               </div>
               <div>
                 <input
-                  type="email"
+                  type={"email"}
                   className="form-control emailInput"
                   id="inputEmail3"
+                  placeholder="Email"
                   name="email"
+                  required
                 />
               </div>
             </div>
           </div>
           <div className="TotalBuy">
             <span className="priceSpan">Total a pagar: ${totalAmount}</span>
-            <button onClick={handleFinalizePurchase} className="finalizarBtn">
+            <button type="submit" className="finalizarBtn">
               <span>Finalizar Compra</span>
             </button>
           </div>

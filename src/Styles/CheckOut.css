@@ -5,7 +5,7 @@
     top: 300px;
     position: relative;
     bottom: 200px;
-    width: 40%;
+    width: 60%;
     text-align: center;
 }
 
@@ -33,7 +33,7 @@
     float: right;
     position: relative;
     bottom: -70px;
-    right: 200px;
+    right: 100px;
 }
   
   .finalizarBtn{
