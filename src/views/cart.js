@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import EmptyCart from "../assets/carrito.png";
+import vapistorelogo from "../assets/vapistorelogo.png"
 import Item from "../Components/Item";
 import { Layout } from "../Components/Layout";
 import { TrashWidget } from "../Components/trashWidget";
@@ -19,10 +19,12 @@ const CartView = () => {
   return (
     <Layout>
       {items.length === 0 ? (
-        <div>
-          <img src={EmptyCart} alt="Empty Cart" />
-          <h1 className="text-2xl">No has agregado productos</h1>
-          <button onClick={() => navigate("/")}>Ir al Inicio</button>
+        <div className="vacioContainer">
+          <img src={vapistorelogo} alt="Empty Cart" className="imageNoProducts"/>
+          <div className="noProductContainer">
+            <h1 className="noProductsText">No has agregado productos</h1>
+            <button className="volverInicio" onClick={() => navigate("/")}><span>Ir al Inicio</span></button>
+          </div>
         </div>
       ) : (
         <div>

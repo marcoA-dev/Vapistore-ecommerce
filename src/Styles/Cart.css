@@ -7,3 +7,83 @@
   bottom: 130px;
 }
 
+
+.noProductsText{
+  display: flex;
+    position: relative;
+    justify-content: center;
+    left: 50px;
+}
+
+.noProductContainer{
+  position: relative;
+	text-align: left;
+	overflow: hidden;
+	padding: 30px;
+	height: 100%;
+	float: left;
+	width: 40%;
+}
+
+.imageNoProducts{
+  width: 300px;
+  height: 300px;
+}
+
+.vacioContainer{
+  box-shadow: 0 15px 30px 1px grey;
+	background: rgba(255, 255, 255, 0.90);
+	text-align: center;
+	border-radius: 5px;
+	overflow: hidden;
+	margin: 5em auto;
+	height: 350px;
+	width: 700px;
+}
+
+
+.volverInicio {
+  border: solid 1px black;
+  border-radius: 25px;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  font-weight: 700;
+  font-size: 10px;
+  background-color: #47bcd4;
+  padding: 17px 60px;
+  margin: 0 auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+  top: 30px;
+  left: 15px;
+}
+
+.volverInicio span {
+  position: relative; 
+  z-index: 1;
+}
+
+
+.volverInicio:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 490%;
+  width: 140%;
+  background: #3cb4cc;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+
+.volverInicio:hover:after {
+  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
