@@ -10,12 +10,12 @@ import { router } from "./router";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBJAHWfmOyikNspLqu-aT6ZIBEH1aNLPxY",
-  authDomain: "ecommerce-ee72f.firebaseapp.com",
-  projectId: "ecommerce-ee72f",
-  storageBucket: "ecommerce-ee72f.appspot.com",
-  messagingSenderId: "258548324693",
-  appId: "1:258548324693:web:b294eec2b1575e325937dc"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID
 };
 
  initializeApp(firebaseConfig);
