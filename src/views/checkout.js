@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/cartContext";
+import Swal from "sweetalert2";
 import "../Styles/CheckOut.css";
 
 // firebase
@@ -62,7 +63,11 @@ const CheckoutView = () => {
         updateDoc(itemRef, dataToUpdate)
           .then(() => {
             clear();
-            alert("Compra finalizada");
+            Swal.fire(
+              "Felicidades!",
+              `Compra Finalizada con Exito`,
+              "success"
+            );
             navigate("/");
           })
           .catch((err) => console.error(err));
